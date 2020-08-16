@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.nav{
+    background-color: azure;
+    padding: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+}
+
+.website-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label{
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 1em 0 .5em 0;
+    font-size: 1.5em;
+}
+.input{
+    padding: .5em;
+    border: solid black 3px;
+}
+
+.input:focus {
+    border-width: thin;
+    border: solid #777777 3px;
+}
+
+.content-textarea{
+    width: 193px;
+    height: 193px;
+    padding: .5em;
+    border: solid black 3px;
+}
+.content-textarea:focus{
+    border: solid #777777 3px;
+}
