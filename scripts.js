@@ -33,22 +33,33 @@ function addToDo(e) {
 
         addTaskLocalStorage(title, content)
 
+        // Adding the DOM Message
+
+        let messageSuccess = new Message("Task added succesfully", "success", form)
+        messageSuccess.addToDOM()
+        setTimeout(() => {
+            messageSuccess.classList.add("hidden")
+        }, 1500)
+
+
 
     } else {
         e.preventDefault();
-        document.getElementById("messageError").classList.add("show");
-        setTimeout(() => {
-            document.getElementById("messageError").classList.remove("show")
-        }, 1500)
+        let messageError = new Message("Please fill the boxes", "error", form)
+        messageError.addToDOM();
     }
 }
 function deleteToDo(e) {
     if (e.target.parentElement.classList[0] === "buttonDelete") {
        e.target.parentElement.parentElement.parentElement.remove();
+        let messageError = new Message("Task deleted succesfully", "success", shower)
+        messageError.addToDOM()
+        deleteTaskLocalStorage(e.target.parentElement.parentElement.textContent)
     }
 
-    deleteTaskLocalStorage(e.target.parentElement.parentElement.textContent)
+    // Creating the message of Delete Message
 
+    
 }
 function addTaskLocalStorage(title, content) {
 
@@ -113,7 +124,38 @@ function deleteTaskLocalStorage(title) {
         }
         localStorage.setItem("tasks", JSON.stringify(tasks))
     })
+}
 
+// Class Message
 
+class Message {
+
+    // Status have two valors: success and error
+
+    constructor(message, status, divToAdd){
+        this.message = message;
+        this.status = status;
+        this.divToAdd = divToAdd;
+    }
+
+    addToDOM(){
+        let div = document.createElement("div")
+        div.classList.add(this.status)
+        div.innerHTML = this.message;
+        let i;
+        if (this.status === "error") {
+            i = document.createElement("i")
+            i.innerHTML = `<i class="fas fa-exclamation-circle"></i>`
+        } else if (this.status === "success"){
+            i = document.createElement("i")
+            i.innerHTML = `<i class="fas fa-check-circle"></i>`
+        }
+        div.appendChild(i)
+        this.divToAdd.appendChild(div)
+        setTimeout(() => {
+            div.classList.add("hidden")
+        }, 500)
+    }
+    
 }
 
