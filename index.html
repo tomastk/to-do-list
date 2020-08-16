@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+    <script src="https://kit.fontawesome.com/1cb27db85b.js" crossorigin="anonymous"></script>
+</head>
+<body> 
+
+        <header class="header">
+            <nav class="header_nav">
+                <h1 class="header_title">My ToDo App</h1>
+            </nav>
+        </header>
+        <main class="container">
+            <div class="form">
+                <h2>Add a ToDo</h2>
+                <form id="form">
+                    <label for="title" class="label-text">Title</label>
+                    <input class="title" id="title" type="text" placeholder="Add a Title">
+                    <label for="content" class="label-text">Content</label>
+                    <textarea placeholder="Add Content" id="content"></textarea>
+                    <input type="submit" value="Submit Form" id="submitButtom">
+                </form>
+                <div class="messageError" id="messageError">
+                    <i class="fas fa-exclamation-circle"></i>
+                    Please fill the boxes
+                </div>
+            </div>
+            <div class="shower" id="shower">
+                <h2>ToDo List</h2>
+            </div>
+        </main>   
+        <footer>
+            <p>Website Development by Tomás TK</p>
+        </footer>
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>
